@@ -40,13 +40,13 @@ inputs:
         parameters:
           name: cfd
           cronExpression: "59 0 0 * * * *"
-          enable: true
+          enable: false
           argument: jd_cfd
     - timer:
         parameters:
           name: cfd_pearl
           cronExpression: "50 59 * * * * *"
-          enable: true
+          enable: false
           argument: jd_cfd_pearl_ex
     - timer:
         parameters:
@@ -64,25 +64,25 @@ inputs:
         parameters:
           name: lottery
           cronExpression: "0 10 0 * * * *"
-          enable: true
+          enable: false
           argument: jd_sx_Lottery&jd_club_lottery
     - timer:
         parameters:
           name: xmf
           cronExpression: "0 15 0 * * * *"
-          enable: true
+          enable: false
           argument: jd_xmf
     - timer:
         parameters:
           name: jxmc
           cronExpression: "59 19 0 * * * *"
-          enable: true
+          enable: false
           argument: jd_jxmc
     - timer:
         parameters:
           name: jd_redrain_half
           cronExpression: "59 29 21,22 * * * *"
-          enable: true
+          enable: false
           argument: jd_redrain_half
   environment:
     variables: #环境变量
