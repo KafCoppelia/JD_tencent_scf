@@ -1,13 +1,14 @@
 # 打京豆部署
 
+几乎所有脚本都被和谐了, 请勿继续使用.
+
 ## 简介
 
 打京豆的脚本部署流程, 非脚本作者, 每个月能打1500左右, 使用方法查看[Docker部署方式](#Docker部署), 每个月需要更新一次cookie.
 
 注意这个仓库只有长期活动的脚本有效, 新活动的脚本需要去别的仓库找, 该仓库不更新脚本.
 
-农场需激活: JD APP->免费水果->选择任一水果
-
+农场需激活: JD APP->免费水果->选择任一水果(水果成熟后需要重复此步操作)
 
 ## Docker部署
 
@@ -16,9 +17,10 @@
 1. 安装Docker
 2. 安装青龙面板(用于定时执行脚本):
 
-    - **windows**: docker run -dit -p 5700:5700 --name qinglong --hostname qinglong --restart unless-stopped whyour/qinglong:latest
-    - **linux**: docker run -dit -v ~/ql:/ql/data -p 5700:5700 --name qinglong --hostname qinglong --restart unless-stopped whyour/qinglong:latest
-    3. 在浏览器访问127.0.0.1:5700, 按照提示完成初始化
+   - **windows**: docker run -dit -p 5700:5700 --name qinglong --hostname qinglong --restart unless-stopped whyour/qinglong:latest
+   - **linux**: docker run -dit -v ~/ql:/ql/data -p 5700:5700 --name qinglong --hostname qinglong --restart unless-stopped whyour/qinglong:latest
+
+   3. 在浏览器访问127.0.0.1:5700, 按照提示完成初始化
 3. 在青龙面板**右上角点击新建任务**, 配置:
 
    - 命令: ql repo https://github.com/cweijan/JD_tencent_scf.git "src"  "test|new|test_index" "^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR|JDSign|ql"
@@ -27,7 +29,7 @@
 4. 配置青龙面板
 
    - 添加: export PT_KEY=""和export PT_PIN="", [获取方式点这里](./wiki/GetJdCookie.md)
-   - 如果执行任务失败, 修改GithubProxyUrl为GithubProxyUrl="" 
+   - 如果执行任务失败, 修改GithubProxyUrl为GithubProxyUrl=""
      ![img](image/README/1644421618420.png)
 5. 回到定时任务面板, 点击任务的运行按钮, 就会拉取所有的脚本, 并定时执行这些脚本, 也可手动点击脚本旁边的按钮执行.
 
@@ -37,7 +39,7 @@
 
 ## 腾讯云函数部署
 
-**已废弃**, 2022.6.1后腾讯云函数不再免费, 每个月需要最低收费12.8元, 不建议使用云函数方式部署了, 已使用云函数部署的建议立刻删掉.
+**已废弃**, 2022.6.1后腾讯云函数不再免费, 每个月需要最低收费12.8元, 不推荐使用云函数方式部署了, 已使用云函数部署的建议立刻删掉.
 
 ### 开通云函数服务
 
@@ -97,7 +99,6 @@
 3. 进入Action中的同步仓库代码, 选中Enable WorkFlow, 然后就会定时执行同步Action了, 也可手动执行
 
 ![](image/README/1644497801258.png)
-
 
 ## 消息推送
 
